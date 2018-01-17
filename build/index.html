@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crowdsales Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="./app.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+    KVC ICO dapp</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+    </ul>
+    </div>
+    </div>
+    </nav>
+    <div class="container" style="margin-top:50px;">
+    <div class="template">
+    <div class="container" id="loading" style="display: none;">
+    KVC Token Sale
+    <br>
+    Loading...please wait.
+    <br>
+    Unlock your MetaMask wallet and/or reload this page if the interface does not load in a few seconds.
+    </div>
+    <div id="app" style="display: block; margin-bottom: 50px;">
+    <div class="container">
+    <h1>Status of the contract</h1>
+    <div class="table-responsive">
+    <table class="table table-hover">
+    <tbody><tr>
+    <td>CrowdSales Contract address</td>
+    <td><a id="crowdsales_contract" target="_blank"></a></td>
+    </tr>
+    <tr>
+        <td>Token Contract address</td>
+        <td><a id="token_contract" target="_blank"></a></td>
+    </tr>
+    <tr>
+    <td>Token Name</td>
+    <td><span id="token_name" style="background-color: white;">KVC</span></td>
+    </tr>
+    <tr>
+    <td>Total Supply</td>
+    <td>
+    <span id="total_supply">-</span>
+    </td>
+    </tr>
+    <tr>
+    <td>Tokens For Sale</td>
+    <td><span id="tokens_for_sale">50000000</span></td>
+    </tr>
+    <tr>
+    <td>Funding Goal</td>
+    <td><span id="funding_goal">-</span> ETH</td>
+    </tr>
+    <tr>
+        <td>Amount Raised</td>
+        <td><span id="amount_raised">-</span> ETH</td>
+        </tr>
+    <tr>
+    <tr>
+        <td>Sale On</td>
+        <td><span id="sale_on">false</span></td>
+    </tr>
+    <tr>
+        <td>Goal Reached</td>
+        <td><span id="goal_reached">false</span></td>
+    </tr>
+    <tr>
+        <td>Refunding</td>
+        <td><span id="refunding">false</span></td>
+    </tr>
+    <tr>
+        <td>Finalized</td>
+        <td><span id="finalized">false</span></td>
+    </tr>
+    <tr>
+    <td>Token price</td>
+    <td><span id="current_price">-</span> ETH</td>
+    </tr>
+    <tr>
+        <td>End Date</td>
+        <td><span id="end_date">-</span></td>
+    </tr>
+     
+    </tbody></table>
+    </div>
+    </div>
+    <div class="container">
+    <h1>Your account</h1>
+    <div class="alert alert-warning" id="account-alert" style="display: block;">Your metamask wallet runs on wrong network. Use Rinkeby</div>
+    <div class="table-responsive">
+    <table class="table table-hover">
+    <tbody><tr>
+    <td>Your ETH address</td>
+    <td><span id="my_address">Unlock your MetaMask wallet and/or reload this page to use trading interface.</span></td>
+    </tr>
+    <tr>
+    <td>Your ETH balance</td>
+    <td><span id="my_eth">-</span> ETH</td>
+    </tr>
+    <tr>
+    <td>Your KVC balance</td>
+    <td><span id="my_kvc">-</span> KVC</td>
+    </tr>
+    </tbody></table>
+    </div>
+    </div>
+    <div class="container">
+    <h1>Trade</h1>
+    <div class="row">
+    <div class="col-md-5">
+    <div class="form-group">
+    <label class="sr-only" for="buy_eth_amount">ETH to spend</label>
+    <div class="input-group">
+    <input type="number" id="buy_eth_amount" class="form-control" onfocusout="App.setTokenValue()" pattern="[0-9]+([\.,][0-9]{0,4}})?" min="0" step="0.0001" placeholder="ETH to spend">
+    <div class="input-group-addon">ETH</div>
+    </div>
+    </div>
+    <div>
+    <div style="margin: 4px 0px">Estimated tokens: <span id="buy_estimated_tokens">-</span> KVC</div>
+    <button type="submit" disabled class="btn btn-primary" onClick="App.buyToken(); return false;" id="buy_btn">BUY</button>
+    </div>
+    
+    <div id="buy-log"></div>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-5">
+            <button type="submit" disabled class="btn btn-warning" id="refund_button" onClick="App.refundBalance(); return false;">REFUND</button>
+            
+    </div>
+    </div>
+    </div>
+    <div class="container" style="padding: 20px;">
+    <div class="alert alert-info">
+    Metamask not working? You can also buy KVC tokens by simply sending ETH to 0x3b511191936ef3ddb5491c568edfbb85005a2891 with at least 100000 gas. You will receive tokens immediately after the transaction.
+    <br>
+    DO NOT send ether directly from the exchange wallet!
+    <br>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    
+    </body>
+
+
+
+</html>
